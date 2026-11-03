@@ -1,0 +1,20 @@
+/* =========================================================
+amberis_ui — entry point
+
+In the app:
+  $brand-primary: #9C5D0D;   // optional, see _colors.scss
+  @import "amberis_ui";
+========================================================= */
+
+/* ============ CONFIG ============ */
+@import "amberis_ui/colors";
+
+/* ============ BOOTSTRAP CORE ============ */
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/variables-dark";
+@import "bootstrap";
+
+/* ============ CHECKS & TOKENS ============ */
+@import "amberis_ui/contrast";
+@import "amberis_ui/tokens";

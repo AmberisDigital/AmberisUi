@@ -1,0 +1,92 @@
+/* =========================================================
+DESIGN TOKENS (CSS VARIABLES) — colours
+Spacing, radii, shadows, type and UI metrics follow with the Care tokens.
+========================================================= */
+
+:root {
+
+  /* ===================== BRAND ===================== */
+  --primary: #{$brand-primary};
+  --primary-hover: #{$brand-primary-hover};
+  --primary-press: #{$brand-primary-press};
+  --primary-soft: #{rgba($brand-accent, 0.12)};
+  --primary-line: #{rgba($brand-accent, 0.30)};
+
+  --accent: #{$brand-accent};
+
+  /* text on a filled --primary / status colour (flips in dark mode) */
+  --on-primary: #ffffff;
+  --on-status:  #ffffff;
+
+  --success: #{$brand-success};
+  --success-soft: #{rgba($brand-success, 0.12)};
+  --warning: #{$brand-warning};
+  --warning-soft: #{rgba($brand-warning, 0.14)};
+  --danger:  #{$brand-danger};
+  --danger-soft: #{rgba($brand-danger, 0.12)};
+  --info:    #{$brand-info};
+  --info-soft: #{rgba($brand-info, 0.12)};
+
+  /* ===================== SURFACES ===================== */
+  --app-bg:   #{$brand-bg};
+  --surface:  #{$neutral-surface};
+  --surface-2:#{$neutral-surface-2};
+  --hover-bg: #{$neutral-hover-bg};
+
+  /* ===================== TEXT ===================== */
+  --text:        #{$neutral-text};
+  --text-strong: #{$neutral-text-strong};
+  --muted:       #{$neutral-muted};
+  --muted-2:     #{$neutral-muted-2};
+
+  /* ===================== BORDERS ===================== */
+  --border:        #{$neutral-border};
+  --border-strong: #{$neutral-border-strong};
+
+  /* ===================== EFFECTS ===================== */
+  --focus-ring: 0 0 0 3px #{rgba($brand-accent, 0.35)};
+}
+
+/* =========================================================
+DARK MODE
+========================================================= */
+
+[data-bs-theme="dark"] {
+  /* ── Surfaces ── */
+  --app-bg:        #{$neutral-dark-bg};
+  --surface:       #{$neutral-dark-surface};
+  --surface-2:     #{$neutral-dark-surface-2};
+  --hover-bg:      #{$neutral-dark-hover-bg};
+
+  /* ── Brand: lighter on dark surfaces, dark text on it ── */
+  --primary:       #{$brand-primary-dark};
+  --primary-hover: #{$brand-primary-dark-hover};
+  --primary-press: #{$brand-primary-dark-press};   // text on --primary-soft
+  --primary-soft:  #{rgba($brand-primary-dark, 0.18)};
+  --primary-line:  #{rgba($brand-primary-dark, 0.36)};
+  --accent:        #{$brand-primary-dark};
+  --on-primary:    #{$neutral-text-strong};
+  --focus-ring:    0 0 0 3px #{rgba($brand-primary-dark, 0.40)};
+
+  /* ── Status: light tints ── */
+  --success:       #{$brand-success-dark};
+  --warning:       #{$brand-warning-dark};
+  --danger:        #{$brand-danger-dark};
+  --info:          #{$brand-info-dark};
+  --on-status:     #{$neutral-text-strong};
+
+  --success-soft:  #{rgba($brand-success-dark, 0.16)};
+  --warning-soft:  #{rgba($brand-warning-dark, 0.16)};
+  --danger-soft:   #{rgba($brand-danger-dark, 0.16)};
+  --info-soft:     #{rgba($brand-info-dark, 0.16)};
+
+  /* ── Text ── */
+  --text:          #{$neutral-dark-text};
+  --text-strong:   #{$neutral-dark-text-strong};
+  --muted:         #{$neutral-dark-muted};
+  --muted-2:       #{$neutral-dark-muted-2};
+
+  /* ── Borders ── */
+  --border:        #{$neutral-dark-border};
+  --border-strong: #{$neutral-dark-border-strong};
+}

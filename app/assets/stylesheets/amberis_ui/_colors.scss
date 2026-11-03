@@ -1,0 +1,92 @@
+@use "sass:color";
+@use "sass:math";
+
+/* Adjusts like color.adjust, then rounds to whole RGB channels — newer
+   Dart Sass would otherwise print rgb(51.9%, …) instead of a hex value. */
+@function amberis-ui-adjust($color, $args...) {
+  $c: color.to-space(color.adjust($color, $args...), rgb);
+  @return rgb(
+    math.round(color.channel($c, "red", $space: rgb)),
+    math.round(color.channel($c, "green", $space: rgb)),
+    math.round(color.channel($c, "blue", $space: rgb))
+  );
+}
+
+/* =========================================================
+COLOURS — the only thing an app may set
+Set the $brand-* variables before `@import "amberis_ui";`. Everything else
+(hover, pressed, soft tints, focus ring, dark mode) is derived here.
+Defaults are AmberisCare's amber.
+========================================================= */
+
+/* Amber in two steps: the darker one for fills and text (white text on it
+   needs 4.5:1), the bright one only for accents — icons, the active bar,
+   soft tints. */
+$brand-primary: #9C5D0D !default;
+$brand-accent:  #C77C1E !default;
+
+$brand-success: #15803D !default;
+$brand-warning: #B53A0A !default;   // orange-red, clearly apart from amber
+$brand-danger:  #DC2626 !default;
+$brand-info:    #0369A1 !default;
+
+$brand-bg: #FAF6EF !default;        // page background
+
+/* Dark mode: a lighter brand on dark surfaces, dark text on it. Derived
+   from the accent; set it yourself if the derivation does not fit. */
+$brand-primary-dark: amberis-ui-adjust($brand-accent, $lightness: 10%, $saturation: -7%) !default;
+
+/* Status colours on dark surfaces (the light-mode ones are ~3:1 there). */
+$brand-success-dark: #4ADE80 !default;
+$brand-warning-dark: #FB923C !default;
+$brand-danger-dark:  #F87171 !default;
+$brand-info-dark:    #38BDF8 !default;
+
+/* =========================================================
+NEUTRALS — the same in every app (not overridable)
+========================================================= */
+
+$neutral-text:        #2A2118;
+$neutral-text-strong: #1A140E;
+$neutral-muted:       #6E6253;   // secondary text, also Bootstrap's $secondary
+$neutral-muted-2:     #75685A;   // placeholders, hints, section titles
+$neutral-surface:     #ffffff;
+$neutral-surface-2:   #F7F2EA;   // subtle raised / table heads
+$neutral-hover-bg:    #F4EDE2;
+$neutral-border:        #ECE4D7; // hairline
+$neutral-border-strong: #E0D5C4;
+
+$neutral-dark-bg:            #17181A;
+$neutral-dark-surface:       #1F2123;
+$neutral-dark-surface-2:     #26282B;
+$neutral-dark-hover-bg:      #2E3033;
+$neutral-dark-text:          #E7E5E2;
+$neutral-dark-text-strong:   #FAFAF9;
+$neutral-dark-muted:         #A8A6A1;
+$neutral-dark-muted-2:       #8F8C86;
+$neutral-dark-border:        #2E3033;
+$neutral-dark-border-strong: #3C3E42;
+
+/* =========================================================
+DERIVED
+========================================================= */
+
+$brand-primary-hover: amberis-ui-adjust($brand-primary, $lightness: -5%);
+$brand-primary-press: amberis-ui-adjust($brand-primary, $lightness: -9%);   // also text on --primary-soft
+
+$brand-primary-dark-hover: amberis-ui-adjust($brand-primary-dark, $lightness: 10%, $saturation: 8%);
+$brand-primary-dark-press: amberis-ui-adjust($brand-primary-dark, $lightness: 14%, $saturation: 10%);
+
+/* =========================================================
+BOOTSTRAP — set here, not by the app
+========================================================= */
+
+$primary:   $brand-primary;
+$secondary: $neutral-muted;   // warm neutral instead of Bootstrap's cold grey
+$success:   $brand-success;
+$warning:   $brand-warning;
+$danger:    $brand-danger;
+$info:      $brand-info;
+
+$body-color: $neutral-text;
+$body-bg:    $brand-bg;

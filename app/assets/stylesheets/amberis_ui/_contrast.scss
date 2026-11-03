@@ -1,0 +1,26 @@
+@use "sass:math";
+
+/* =========================================================
+CONTRAST CHECK — warns while compiling when an app's colours fall below
+WCAG AA (4.5:1 for normal text). Uses Bootstrap's contrast-ratio().
+========================================================= */
+
+@mixin amberis-ui-check-contrast($label, $background, $foreground, $minimum: 4.5) {
+  $ratio: contrast-ratio($background, $foreground);
+  @if $ratio < $minimum {
+    @warn "amberis_ui: #{$label} hat Kontrast #{math.div(math.round($ratio * 100), 100)}:1 (#{$foreground} auf #{$background}), nötig sind #{$minimum}:1.";
+  }
+}
+
+/* Light mode */
+@include amberis-ui-check-contrast("Weiß auf $brand-primary", $brand-primary, #ffffff);
+@include amberis-ui-check-contrast("$brand-primary auf $brand-bg", $brand-bg, $brand-primary);
+@include amberis-ui-check-contrast("--muted auf $brand-bg", $brand-bg, $neutral-muted);
+@include amberis-ui-check-contrast("$brand-success auf Weiß", #ffffff, $brand-success);
+@include amberis-ui-check-contrast("$brand-warning auf Weiß", #ffffff, $brand-warning);
+@include amberis-ui-check-contrast("$brand-danger auf Weiß", #ffffff, $brand-danger);
+@include amberis-ui-check-contrast("$brand-info auf Weiß", #ffffff, $brand-info);
+
+/* Dark mode */
+@include amberis-ui-check-contrast("Text auf $brand-primary-dark", $brand-primary-dark, $neutral-text-strong);
+@include amberis-ui-check-contrast("$brand-primary-dark auf dunkler Fläche", $neutral-dark-surface, $brand-primary-dark);

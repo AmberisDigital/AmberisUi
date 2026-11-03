@@ -1,0 +1,6 @@
+/.bundle/
+/.idea/
+/pkg/
+/tmp/
+/vendor/bundle/
+*.gem
