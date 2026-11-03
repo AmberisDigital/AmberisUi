@@ -20,7 +20,7 @@ FORMS — clean, slim, brand-tinted focus
 .form-control::placeholder { color: var(--muted-2); }
 
 .form-control:hover,
-.form-select:hover { border-color: #cfd5de; }
+.form-select:hover { border-color: var(--border-hover); }
 
 .form-control:focus,
 .form-select:focus {

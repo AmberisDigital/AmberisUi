@@ -49,7 +49,7 @@ App-specific helpers (signature pad, calendar, categories …) stay in the app.
 .bg-success-soft   { background: var(--success-soft); }
 .bg-danger-soft    { background: var(--danger-soft); }
 .bg-warning-soft   { background: var(--warning-soft); }
-.bg-secondary-soft { background: rgba(100, 116, 139, 0.12); }
+.bg-secondary-soft { background: var(--hover-bg); }
 
 /* ---- Border / radius ---- */
 .rounded-sm { border-radius: var(--radius-sm); }

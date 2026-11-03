@@ -55,6 +55,8 @@ $neutral-surface-2:   #F7F2EA;   // subtle raised / table heads
 $neutral-hover-bg:    #F4EDE2;
 $neutral-border:        #ECE4D7; // hairline
 $neutral-border-strong: #E0D5C4;
+$neutral-border-hover:  #D3C6B2; // fields and scrollbar under the pointer
+$neutral-backdrop:      rgba(42, 33, 24, 0.5);   // behind modals, warm like the shadows
 
 $neutral-dark-bg:            #17181A;
 $neutral-dark-surface:       #1F2123;
@@ -66,6 +68,7 @@ $neutral-dark-muted:         #A8A6A1;
 $neutral-dark-muted-2:       #8F8C86;
 $neutral-dark-border:        #2E3033;
 $neutral-dark-border-strong: #3C3E42;
+$neutral-dark-border-hover:  #4A4D52;
 
 /* =========================================================
 DERIVED

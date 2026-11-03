@@ -86,7 +86,7 @@ BODY
 VARIANTS
 ========================================================= */
 
-.table-striped tbody tr:nth-of-type(odd) { background: #fcfcfd; }
+.table-striped tbody tr:nth-of-type(odd) { background: var(--surface-2); }
 .table-striped tbody tr:nth-of-type(odd):hover { background: var(--hover-bg); }
 
 .table-borderless td { border: none; }

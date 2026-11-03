@@ -47,7 +47,7 @@ MODAL — refined surface + the original stability fixes
 
 /* --- backdrop fix --- */
 .modal-backdrop {
-  background: rgba(15, 23, 42, 0.5);
+  background: var(--backdrop);
   backdrop-filter: none !important;
 }
 .modal-backdrop.show { opacity: 1; }
