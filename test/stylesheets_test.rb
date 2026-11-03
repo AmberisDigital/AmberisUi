@@ -52,6 +52,14 @@ class StylesheetsTest < Minitest::Test
     refute_includes css, "fonts.googleapis.com"
   end
 
+  def test_outline_buttons_keep_their_border
+    css, = compile
+    btn = css[/^\.btn \{[^}]*\}/]
+
+    assert_includes btn, "border: var(--bs-btn-border-width) solid var(--bs-btn-border-color)"
+    assert_match(/\.btn-outline-secondary \{[^}]*--bs-btn-border-color: #6E6253/, css)
+  end
+
   def test_menu_entries_look_the_same_in_the_offcanvas
     css, = compile
 

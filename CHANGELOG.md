@@ -3,6 +3,15 @@
 Versionen nach Semver: Farbton oder Abstand ändern = Minor, Klasse umbenennen
 oder entfernen = Major (mit Hinweis hier).
 
+## 0.1.2
+
+### Behoben
+
+- `btn-outline-secondary`, `-danger`, `-success`, `-warning`, `-dark` …
+  hatten keinen Rahmen (nur beim Hover): `.btn` setzte
+  `border: 1px solid transparent` und überdeckte Bootstraps
+  `--bs-btn-border-color`. Der Fehler stammt aus Cares altem Stylesheet.
+
 ## 0.1.1
 
 ### Behoben
