@@ -1,0 +1,221 @@
+/* =========================================================
+SIDEBAR — clean, crisp, calm
+========================================================= */
+
+.sidebar {
+  width: 248px;
+  flex-shrink: 0;
+
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+
+  padding: 18px 14px;
+
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Brand / logo lockup at top of sidebar */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px 16px;
+  margin-bottom: 4px;
+}
+.sidebar-brand img { width: auto; }
+.sidebar-brand .name {
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -0.02em;
+  color: var(--text-strong);
+}
+
+/* =========================================================
+NAVIGATION
+========================================================= */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar .nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+
+  color: var(--muted);
+  font-weight: 550;
+  font-size: 0.9rem;
+
+  transition: var(--transition);
+}
+
+.sidebar .nav-link i { font-size: 1.05rem; width: 20px; text-align: center; color: var(--muted-2); transition: var(--transition); }
+
+.sidebar .nav-link:hover {
+  background: var(--hover-bg);
+  color: var(--text);
+}
+.sidebar .nav-link:hover i { color: var(--muted); }
+
+/* Active — soft fill + brand accent bar + brand icon */
+.sidebar .nav-link.active {
+  background: var(--primary-soft);
+  color: var(--primary-press);
+  font-weight: 600;
+}
+.sidebar .nav-link.active i { color: var(--accent); }
+.sidebar .nav-link.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+/* trailing count pill on a nav item */
+.sidebar .nav-link .nav-count {
+  margin-left: auto;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--muted);
+  background: var(--hover-bg);
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+.sidebar .nav-link.active .nav-count { color: var(--primary-press); background: var(--surface); }
+
+/* =========================================================
+SECTION TITLE
+========================================================= */
+
+.sidebar-section-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted-2);
+  margin: 16px 12px 6px;
+}
+
+/* =========================================================
+ADMIN DROPDOWN (account footer)
+========================================================= */
+
+.admin-dropdown { margin-top: auto; padding-top: 12px; }
+
+.admin-menu-button {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+.admin-menu-button:hover { background: var(--hover-bg); border-color: var(--border-strong); }
+
+.admin-menu-left { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.875rem; }
+
+.admin-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background: var(--primary-soft);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-menu-right { display: flex; align-items: center; gap: 8px; }
+
+.notification-badge {
+  min-width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--danger);
+  color: var(--on-status);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-menu-right i.bi-chevron-down { font-size: 14px; color: var(--muted-2); }
+
+/* =========================================================
+DROPDOWN MENU (shared)
+========================================================= */
+
+.dropdown-menu-modern {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 6px;
+  box-shadow: var(--shadow-lg);
+}
+
+.dropdown-menu-modern .dropdown-item {
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+.dropdown-menu-modern .dropdown-item:hover { background: var(--hover-bg); }
+.dropdown-menu-modern .dropdown-item.text-danger:hover { background: var(--danger-soft); }
+.dropdown-menu-modern .dropdown-divider { margin: 6px 4px; border-color: var(--border); }
+
+/* =========================================================
+MOBILE SIDEBAR
+========================================================= */
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 270px;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Touch: menu entries ~44px high — in the sidebar and in the mobile
+   offcanvas, which renders the same .sidebar-nav. */
+@media (pointer: coarse) {
+  .sidebar-nav .nav-link { padding-block: 12px; }
+  .dropdown-menu .dropdown-item,
+  .dropdown-menu-modern .dropdown-item { padding-block: 12px; }
+}

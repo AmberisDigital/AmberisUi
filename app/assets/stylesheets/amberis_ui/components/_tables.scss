@@ -1,0 +1,224 @@
+/* =========================================================
+TABLES — clean rows, hairline separators, calm header
+========================================================= */
+
+.lock-indicator {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary);
+  opacity: 0.65;
+  font-size: 0.8rem;
+  cursor: default;
+
+  &:hover { opacity: 1; }
+}
+
+.lock-col {
+  width: 1%;
+  white-space: nowrap;
+  padding-right: 0 !important;
+}
+
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.table {
+  --bs-table-bg: var(--surface);
+  --bs-table-striped-bg: var(--surface);
+  --bs-table-hover-bg: var(--hover-bg);
+  margin-bottom: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+  width: 100%;
+  background: var(--surface);
+}
+
+/* When the table isn't wrapped, still round it */
+.table:not(.table-wrap .table) {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+.table thead th {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: var(--surface-2);
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+/* =========================================================
+BODY
+========================================================= */
+
+.table tbody tr { transition: background var(--transition); }
+
+.table tbody td {
+  padding: 13px 16px;
+  color: var(--text);
+  vertical-align: middle;
+  border-top: 1px solid var(--border);
+}
+
+.table tbody tr:first-child td { border-top: none; }
+
+.table tbody tr:hover { background: var(--hover-bg); }
+
+/* Primary cell (name/title) reads a touch stronger */
+.table td .cell-title { font-weight: 600; color: var(--text-strong); }
+.table td .cell-sub   { font-size: 0.75rem; color: var(--muted); }
+
+/* =========================================================
+VARIANTS
+========================================================= */
+
+.table-striped tbody tr:nth-of-type(odd) { background: #fcfcfd; }
+.table-striped tbody tr:nth-of-type(odd):hover { background: var(--hover-bg); }
+
+.table-borderless td { border: none; }
+
+/* =========================================================
+ACTIONS / BADGES INSIDE TABLE
+========================================================= */
+
+.table .actions { display: flex; justify-content: flex-end; gap: 6px; }
+.table .badge { font-size: 11px; padding: 4px 9px; }
+
+/* row-embedded avatar + name lockup */
+.table .user-cell { display: flex; align-items: center; gap: 10px; }
+
+/* =========================================================
+MOBILE TABLE → CARDS
+========================================================= */
+
+@media (max-width: 768px) {
+  .table-wrap { border: none; background: transparent; box-shadow: none; border-radius: 0; }
+
+  .table-mobile-cards thead { display: none; }
+
+  .table-mobile-cards,
+  .table-mobile-cards tbody { display: block; width: 100%; }
+
+  /* A card: a top line with status and buttons, below it the other cells as
+     a list, each label above its value.
+       td.cell-top      top line, left  (status, icons) — label hidden
+       td.cell-actions  top line, right (buttons)
+     Without these classes the lock column and cells without a label go to
+     the top left, the last cell with .text-end and no label (the buttons)
+     to the right. */
+  .table-mobile-cards tbody tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* tbody: beats .table tbody td (padding 13px 16px, borders) */
+  .table-mobile-cards tbody td {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--text);
+    overflow-wrap: anywhere;
+    text-align: left;
+  }
+
+  /* In the list everything starts at the left — also cells with .text-end or
+     .text-center (Bootstrap utilities, !important) for the desktop table. */
+  .table-mobile-cards tbody td[data-label]:not(.cell-top) { text-align: left !important; }
+
+  .table-mobile-cards tbody td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 1px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+
+  /* Top line */
+  .table-mobile-cards tbody td.cell-top,
+  .table-mobile-cards tbody td.lock-col,
+  .table-mobile-cards tbody td:not([data-label]) {
+    order: -2;
+    width: auto;
+    padding-bottom: 6px;
+  }
+  .table-mobile-cards tbody td.cell-top::before { content: none; }
+
+  /* td.cell-title: the card's title (e.g. the name) — takes the top line
+     up to the buttons, wraps when long. */
+  .table-mobile-cards tbody td.cell-title {
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: 15px;
+  }
+
+  .table-mobile-cards tbody td.cell-actions,
+  .table-mobile-cards tbody td.text-end:last-child:not([data-label], .cell-move),
+  .table-mobile-cards tbody td:has(> .actions) {
+    order: -1;
+    width: auto;
+    margin-left: auto;
+    padding-bottom: 6px;
+    text-align: right;
+  }
+  .table-mobile-cards .actions { justify-content: flex-end; }
+
+  /* td.cell-move (shared/move_actions): bottom right, next to the list —
+     the labelled cells leave room for it. Needs at least one of them. */
+  .table-mobile-cards tbody td.cell-move {
+    position: absolute;
+    right: 14px;
+    bottom: 10px;
+    width: auto;
+    padding: 0;
+  }
+  .table-mobile-cards tbody tr:has(> td.cell-move) > td[data-label]:not(.cell-top) { padding-right: 84px; }
+
+  /* Cards inside a content card keep off its edges. */
+  .card .table-responsive > .table-mobile-cards > tbody { padding: 4px 12px 12px; }
+
+  /* a.row-link (e.g. the name to the show page) opens on a tap anywhere on
+     the card; the other links and buttons stay on top of it. */
+  .table-mobile-cards tbody tr { position: relative; }
+  .table-mobile-cards tbody a.row-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  .table-mobile-cards tbody td :is(a:not(.row-link), button, form, input, select, label) {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Nothing to show, no row: empty cells (a cell with its content on the
+     next lines needs HAML's "<", or the line break counts as content), the
+     lock column without a lock. */
+  .table-mobile-cards tbody td:empty,
+  .table-mobile-cards tbody td.lock-col:not(:has(.lock-indicator)) { display: none; }
+}

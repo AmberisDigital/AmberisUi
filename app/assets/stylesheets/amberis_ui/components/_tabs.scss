@@ -1,0 +1,132 @@
+/* =========================================================
+TABS  — proper underline + segmented tab styles
+NOTE: previously this file accidentally duplicated _topbar.scss.
+========================================================= */
+
+/* =========================================================
+UNDERLINE TABS  (Bootstrap .nav-tabs)
+========================================================= */
+
+.nav-tabs {
+  border-bottom: 1px solid var(--border);
+  gap: 4px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.nav-tabs .nav-link {
+  position: relative;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 10px 4px;
+  margin: 0 8px;
+  border-radius: 0;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.nav-tabs .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 2px;
+  background: transparent;
+  transition: background var(--transition);
+}
+
+.nav-tabs .nav-link:hover { color: var(--text); }
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: var(--primary-press);
+  background: transparent;
+  border: none;
+}
+.nav-tabs .nav-link.active::after { background: var(--primary); }
+
+.nav-tabs .nav-link .badge { margin-left: 6px; }
+
+/* =========================================================
+PILL TABS  (Bootstrap .nav-pills  — compact, left-aligned)
+========================================================= */
+
+.nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: fit-content;
+
+  .nav-item { flex: 0 0 auto; }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--muted);
+    border-radius: var(--radius-md);
+    transition: background var(--transition), color var(--transition);
+
+    &:hover { color: var(--text); background: var(--hover-bg); }
+  }
+
+  .nav-link.active {
+    background: var(--primary);
+    color: var(--on-primary);
+  }
+}
+
+/* =========================================================
+SEGMENTED CONTROL  (.nav-segment) — slim toggle group
+========================================================= */
+
+.nav-segment {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  background: var(--hover-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.nav-segment .nav-link {
+  border-radius: calc(var(--radius-md) - 4px);
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: var(--transition);
+}
+.nav-segment .nav-link:hover { color: var(--text); }
+.nav-segment .nav-link.active {
+  background: var(--surface);
+  color: var(--text-strong);
+  box-shadow: var(--shadow-xs);
+}
+
+/* =========================================================
+TAB PANES
+========================================================= */
+
+.tab-content { padding-top: 20px; }
+.tab-pane { animation: tab-fade 0.2s ease; }
+
+@keyframes tab-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab-pane { animation: none; }
+}

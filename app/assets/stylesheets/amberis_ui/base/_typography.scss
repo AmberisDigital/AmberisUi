@@ -1,0 +1,48 @@
+/* =========================================================
+TYPOGRAPHY  — refined scale + optical tightening
+========================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-strong);
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.014em;
+  margin: 0;
+}
+
+h1 { font-size: 1.625rem; letter-spacing: -0.02em; }   // 26px
+h2 { font-size: 1.375rem; letter-spacing: -0.018em; }  // 22px
+h3 { font-size: 1.15rem; }                              // 18px
+h4 { font-size: 1rem; font-weight: 600; }               // 16px
+h5 { font-size: 0.9375rem; font-weight: 600; }          // 15px
+h6 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+
+p {
+  color: var(--muted);
+  margin: 0;
+}
+
+p + p { margin-top: 0.65em; }
+
+small, .text-sm {
+  font-size: 0.8125rem;
+}
+
+strong, b { font-weight: 600; color: var(--text); }
+
+/* Numeric data (tables, stats) lines up cleanly */
+.tabular,
+.card-stat .value,
+.table td .num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Eyebrow / section label */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}

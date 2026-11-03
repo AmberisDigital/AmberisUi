@@ -1,6 +1,5 @@
 /* =========================================================
-DESIGN TOKENS (CSS VARIABLES) — colours
-Spacing, radii, shadows, type and UI metrics follow with the Care tokens.
+DESIGN TOKENS (CSS VARIABLES)
 ========================================================= */
 
 :root {
@@ -43,8 +42,55 @@ Spacing, radii, shadows, type and UI metrics follow with the Care tokens.
   --border:        #{$neutral-border};
   --border-strong: #{$neutral-border-strong};
 
+  /* ===================== SHADOWS (crisp + layered) ===================== */
+  --shadow-xs: 0 1px 2px rgba(42, 33, 24, 0.05);
+  --shadow-sm: 0 1px 2px rgba(42, 33, 24, 0.06), 0 1px 1px rgba(42, 33, 24, 0.04);
+  --shadow-md: 0 2px 4px rgba(42, 33, 24, 0.05), 0 4px 12px -4px rgba(42, 33, 24, 0.10);
+  --shadow-lg: 0 12px 28px -10px rgba(42, 33, 24, 0.18), 0 6px 12px -8px rgba(42, 33, 24, 0.10);
+
+  /* ===================== RADIUS ===================== */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  --radius-button: 10px;
+  --radius-input:  10px;
+  --radius-pill:   999px;
+
+  /* ===================== SPACING (consistent rhythm) ===================== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* ===================== UI METRICS ===================== */
+  --ui-height: 40px;            // slimmer controls
+  --ui-height-sm: 32px;
+  --ui-height-lg: 46px;
+  --ui-font: 0.875rem;          // 14px
+
   /* ===================== EFFECTS ===================== */
+  --transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
   --focus-ring: 0 0 0 3px #{rgba($brand-accent, 0.35)};
+
+  /* ===================== GRADIENTS (kept for compatibility, restrained) ===================== */
+  --gradient-primary:       linear-gradient(135deg, #{amberis-ui-adjust($brand-primary, $lightness: 4%)}, #{amberis-ui-adjust($brand-primary, $lightness: -6%)});
+  --gradient-primary-hover: linear-gradient(135deg, #{$brand-primary}, #{amberis-ui-adjust($brand-primary, $lightness: -10%)});
+  --gradient-success:       linear-gradient(135deg, #{amberis-ui-adjust($brand-success, $lightness: 6%)}, #{amberis-ui-adjust($brand-success, $lightness: -6%)});
+}
+
+/* Touch screens: controls big enough for a finger (~44px). A mouse keeps
+   the slim desktop sizes. */
+@media (pointer: coarse) {
+  :root {
+    --ui-height: 44px;
+    --ui-height-sm: 40px;
+    --ui-height-lg: 48px;
+  }
 }
 
 /* =========================================================
@@ -89,4 +135,37 @@ DARK MODE
   /* ── Borders ── */
   --border:        #{$neutral-dark-border};
   --border-strong: #{$neutral-dark-border-strong};
+
+  /* ── Shadows (stärker für dunkle Oberflächen) ── */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 12px -4px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 12px 28px -10px rgba(0, 0, 0, 0.7), 0 6px 12px -8px rgba(0, 0, 0, 0.6);
+
+  /* ── Bootstrap-Utilities überschreiben ── */
+  .text-dark              { color: var(--text) !important; }
+  .text-body              { color: var(--text) !important; }
+  body                    { background-color: var(--app-bg) !important; }
+  .bg-white               { background-color: var(--surface) !important; }
+  .bg-light               { background-color: var(--surface-2) !important; }
+  .table-light            { --bs-table-bg: var(--surface-2); color: var(--text); }
+  .card                   { --bs-card-bg: var(--surface); }
+  .offcanvas              { --bs-offcanvas-bg: var(--surface); }
+  .dropdown-menu          { --bs-dropdown-bg: var(--surface); border-color: var(--border); }
+  .modal-content          { background-color: var(--surface); }
+  .form-control,
+  .form-select            { background-color: var(--surface-2); border-color: var(--border); color: var(--text); }
+  .form-control:focus,
+  .form-select:focus      { background-color: var(--surface-2); color: var(--text); }
+  .input-group-text       { background-color: var(--surface-2); border-color: var(--border); color: var(--muted); }
+  .list-group-item        { background-color: var(--surface); border-color: var(--border); }
+  .progress               { background-color: var(--surface-2); }
+  .alert-info             { background-color: #{rgba($brand-info-dark, 0.15)}; border-color: #{rgba($brand-info-dark, 0.30)}; color: #7dd3fc; }
+
+  /* Bootstrap's text utilities keep the light-mode colours, ~3:1 here */
+  .text-primary           { color: var(--primary) !important; }
+  .text-success           { color: var(--success) !important; }
+  .text-warning           { color: var(--warning) !important; }
+  .text-danger            { color: var(--danger)  !important; }
+  .text-info              { color: var(--info)    !important; }
 }

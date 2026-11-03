@@ -33,6 +33,21 @@ class StylesheetsTest < Minitest::Test
     assert warnings.any? { |w| w.include?("Weiß auf $brand-primary") }, warnings.inspect
   end
 
+  def test_includes_tokens_base_and_components
+    css, = compile
+
+    ["--space-4: 16px", "--ui-height: 44px", ".btn-primary", ".card-stat",
+     ".table-mobile-cards", ".sidebar .nav-link.active", ".ts-wrapper", ".toast-success",
+     ".admin-notice", ".text-clamp"].each { |piece| assert_includes css, piece }
+  end
+
+  def test_app_specific_helpers_stay_out
+    css, = compile
+
+    refute_includes css, ".signature-pad"
+    refute_includes css, ".bg-eigenaussage"
+  end
+
   def test_app_cannot_override_bootstrap_colours_directly
     css, = compile("$primary: #ff0000;")
 

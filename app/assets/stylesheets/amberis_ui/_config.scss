@@ -1,0 +1,16 @@
+/* =========================================================
+BOOTSTRAP CONFIG — the same in every app (not overridable)
+========================================================= */
+
+/* Slimmer, more refined corner scale (was 1rem / 0.75 / 1.25) */
+$border-radius:    0.625rem;  // 10px
+$border-radius-sm: 0.5rem;    // 8px
+$border-radius-lg: 0.875rem;  // 14px
+
+$btn-border-radius:   10px;
+$input-border-radius: 10px;
+
+/* =========================================================
+TYPOGRAPHY (Bootstrap)
+========================================================= */
+$font-family-sans-serif: 'DM Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;

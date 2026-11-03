@@ -1,0 +1,154 @@
+/* =========================================================
+TOPBAR — page header bar
+========================================================= */
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 16px;
+  margin-bottom: 24px;
+}
+
+.topbar-left  { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1 1 200px; }
+.topbar-right { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; margin-left: auto; }
+.topbar-search { flex: 0 1 280px; min-width: 150px; }
+
+/* =========================================================
+TITLE
+========================================================= */
+
+.topbar-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-strong);
+  line-height: 1.15;
+}
+
+.topbar-subtitle {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* =========================================================
+SEARCH
+========================================================= */
+
+.topbar-search { position: relative; }
+
+.topbar-search input {
+  height: var(--ui-height);
+  width: 260px;
+  max-width: 100%;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--border-strong);
+  padding: 0 12px 0 38px;
+  font-size: var(--ui-font);
+  background: var(--surface);
+  transition: var(--transition);
+}
+.topbar-search input:focus {
+  border-color: var(--primary);
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+.topbar-search i {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  color: var(--muted-2);
+}
+
+/* =========================================================
+ACTIONS / USER / NOTIFICATIONS
+========================================================= */
+
+.topbar-actions { display: flex; align-items: center; gap: 10px; }
+
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 4px 6px 4px 4px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+}
+.topbar-user:hover { background: var(--hover-bg); }
+
+.topbar-user-name { font-weight: 600; font-size: 0.875rem; color: var(--text); line-height: 1.15; }
+.topbar-user-role { font-size: 0.75rem; color: var(--muted); }
+
+.topbar-notification {
+  position: relative;
+  cursor: pointer;
+  width: var(--ui-height);
+  height: var(--ui-height);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: var(--transition);
+}
+.topbar-notification:hover { background: var(--hover-bg); border-color: var(--border-strong); }
+.topbar-notification i { font-size: 18px; color: var(--muted); }
+
+.topbar-notification-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--danger);
+  color: var(--on-status);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--surface);
+}
+
+/* =========================================================
+SIDEBAR TOGGLE (hamburger)
+========================================================= */
+
+.sidebar-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--ui-height);
+  height: var(--ui-height);
+  flex-shrink: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.sidebar-toggle:hover { background: var(--hover-bg); }
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .topbar-left { flex: 1 1 auto; }
+  .sidebar-toggle { display: flex; }
+  .topbar-search input { width: 100%; }
+  .topbar-search { flex: 1 1 100%; order: 3; }
+}

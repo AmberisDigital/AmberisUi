@@ -4,10 +4,13 @@ amberis_ui — entry point
 In the app:
   $brand-primary: #9C5D0D;   // optional, see _colors.scss
   @import "amberis_ui";
+
+Icon font, Tom Select and app pages are imported by the app after this.
 ========================================================= */
 
 /* ============ CONFIG ============ */
 @import "amberis_ui/colors";
+@import "amberis_ui/config";
 
 /* ============ BOOTSTRAP CORE ============ */
 @import "bootstrap/functions";
@@ -18,3 +21,25 @@ In the app:
 /* ============ CHECKS & TOKENS ============ */
 @import "amberis_ui/contrast";
 @import "amberis_ui/tokens";
+
+/* ============ BASE ============ */
+@import "amberis_ui/base/reset";
+@import "amberis_ui/base/typography";
+@import "amberis_ui/base/layout";
+
+/* ============ COMPONENTS ============ */
+@import "amberis_ui/components/buttons";
+@import "amberis_ui/components/cards";
+@import "amberis_ui/components/modal";
+@import "amberis_ui/components/forms";
+@import "amberis_ui/components/sidebar";
+@import "amberis_ui/components/topbar";
+@import "amberis_ui/components/tables";
+@import "amberis_ui/components/badges";
+@import "amberis_ui/components/avatar";
+@import "amberis_ui/components/tabs";
+@import "amberis_ui/components/nav";
+@import "amberis_ui/components/flash";
+
+/* ============ UTILITIES ============ */
+@import "amberis_ui/utilities/helpers";

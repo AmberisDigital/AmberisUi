@@ -1,0 +1,242 @@
+/* =========================================================
+FORMS — clean, slim, brand-tinted focus
+========================================================= */
+
+.form-control,
+.form-select {
+  height: var(--ui-height);
+  font-size: var(--ui-font);
+  color: var(--text);
+
+  border-radius: var(--radius-input);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+
+  padding: 0 12px;
+
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.form-control::placeholder { color: var(--muted-2); }
+
+.form-control:hover,
+.form-select:hover { border-color: #cfd5de; }
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  background: var(--surface-2);
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* sizes */
+.form-control-sm, .form-select-sm { height: var(--ui-height-sm); font-size: 0.8125rem; border-radius: var(--radius-sm); }
+.form-control-lg, .form-select-lg { height: var(--ui-height-lg); }
+
+/* =========================================================
+LABELS / GROUPS
+========================================================= */
+
+.form-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  letter-spacing: -0.005em;
+}
+
+.form-group { margin-bottom: 18px; }
+
+.form-text { font-size: 0.75rem; color: var(--muted); margin-top: 5px; }
+
+/* =========================================================
+INPUT GROUP
+========================================================= */
+
+.input-group-text {
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-input);
+  color: var(--muted);
+  font-size: var(--ui-font);
+}
+
+.input-group > .form-control { border-left: none; }
+
+/* =========================================================
+VALIDATION
+========================================================= */
+
+.is-valid   { border-color: var(--success) !important; }
+.is-invalid { border-color: var(--danger)  !important; }
+.is-valid:focus   { box-shadow: 0 0 0 3px var(--success-soft); }
+.is-invalid:focus { box-shadow: 0 0 0 3px var(--danger-soft); }
+
+.invalid-feedback { font-size: 0.75rem; color: var(--danger); }
+
+/* =========================================================
+TEXTAREA
+========================================================= */
+
+textarea.form-control {
+  height: auto;
+  min-height: 104px;
+  padding: 10px 12px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+/* =========================================================
+CHECKBOX & RADIO
+========================================================= */
+
+.form-check-input {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.15em;
+  border-radius: 6px;
+  border: 1.5px solid var(--border-strong);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.form-check-input[type="radio"] { border-radius: 50%; }
+
+.form-check-input:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+.form-check-input:focus-visible { box-shadow: var(--focus-ring); }
+
+.form-check-label { font-size: var(--ui-font); color: var(--text); }
+
+/* Switch */
+.form-switch .form-check-input { width: 36px; height: 20px; border-radius: 999px; }
+
+/* =========================================================
+TOM SELECT — aligned to the input system
+========================================================= */
+
+/* Every select is one (app/javascript/tom_select_setup.js). The wrapper
+   takes over the select's classes — .form-select / .form-control must not
+   draw a second box around .ts-control. */
+.ts-wrapper.form-select,
+.ts-wrapper.form-control {
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.ts-wrapper .ts-control {
+  /* .ts-control is a wrapping flex box: center the line(s) of text/items */
+  align-items: center;
+  align-content: center;
+  min-height: var(--ui-height);
+  border-radius: var(--radius-input);
+  border: 1px solid var(--border-strong);
+  padding: 0 10px;
+  font-size: var(--ui-font);
+  background: var(--surface);
+  box-shadow: none;
+  transition: var(--transition);
+}
+
+/* single: the select's arrow, so it still reads as a choice (the base
+   theme has none; its right padding is !important, set via --ts-pr-min) */
+.ts-wrapper.single .ts-control {
+  --ts-pr-min: 32px;
+  background: var(--surface) var(--bs-form-select-bg-img) no-repeat right 10px center / 16px 12px;
+}
+
+.ts-wrapper.form-select-sm .ts-control {
+  min-height: var(--ui-height-sm);
+  font-size: 0.8125rem;
+  border-radius: var(--radius-sm);
+}
+
+.ts-wrapper.focus .ts-control {
+  border-color: var(--primary);
+  box-shadow: var(--focus-ring);
+}
+
+.ts-wrapper.is-invalid .ts-control { border-color: var(--bs-danger); }
+
+.ts-wrapper.disabled .ts-control {
+  background-color: var(--surface-2);
+  color: var(--muted);
+  opacity: 1;
+}
+
+.ts-wrapper.multi .ts-control .item {
+  background: var(--primary-soft);
+  color: var(--primary-press);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+/* dropdownParent: 'body' lifts .ts-dropdown out from under .tom-select (so it
+   can't be clipped by a modal's overflow: hidden) — style it unscoped and
+   give it enough z-index to clear Bootstrap's modal (1055). */
+.ts-dropdown {
+  z-index: 1080;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  padding: 6px;
+  margin-top: 6px;
+}
+
+.ts-dropdown .option {
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: var(--ui-font);
+}
+.ts-dropdown .option:hover,
+.ts-dropdown .option.active {
+  background: var(--hover-bg);
+  color: var(--text);
+}
+.ts-dropdown .option.selected {
+  background: var(--primary-soft);
+  color: var(--primary-press);
+}
+
+/* =========================================================
+TOUCH
+========================================================= */
+
+@media (pointer: coarse) {
+  /* iOS Safari zooms into any field under 16px when it gets focus. */
+  .form-control,
+  .form-select,
+  .form-control-sm,
+  .form-select-sm,
+  .ts-wrapper .ts-control,
+  .ts-wrapper .ts-control input,
+  .ts-wrapper.form-select-sm .ts-control,
+  .ts-dropdown .dropdown-input {
+    font-size: 16px;
+  }
+
+  /* Bigger box and switch — the label moves over to keep a gap. */
+  .form-check { padding-left: 32px; }
+  .form-check .form-check-input { margin-left: -32px; }
+  .form-check-input {
+    width: 22px;
+    height: 22px;
+    margin-top: 0;
+  }
+  .form-switch { padding-left: 54px; }
+  .form-switch .form-check-input { width: 44px; height: 24px; margin-left: -54px; }
+
+  .ts-dropdown .option { padding: 12px 10px; }
+}

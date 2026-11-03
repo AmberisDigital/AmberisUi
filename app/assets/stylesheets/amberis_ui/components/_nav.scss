@@ -1,0 +1,56 @@
+/* =========================================================
+NAVIGATION (generic .nav / pills / icon nav)
+========================================================= */
+
+.nav { gap: 4px; }
+
+/* Base nav link */
+.nav-link {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--muted);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  transition: var(--transition);
+}
+.nav-link:hover { color: var(--text); background: var(--hover-bg); }
+.nav-link.active { color: var(--primary-press); }
+
+/* ---- Pills ---- */
+.nav-pills .nav-link {
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  font-size: 0.875rem;
+}
+.nav-pills .nav-link.active { background: var(--primary); color: var(--on-primary); }
+.nav-pills .nav-link:hover:not(.active) { background: var(--hover-bg); }
+
+/* ---- Primary nav ---- */
+.nav-primary .nav-link.active { background: var(--primary-soft); color: var(--primary-press); }
+.nav-primary .nav-link:hover { background: var(--hover-bg); }
+
+/* ---- Success nav ---- */
+.nav-success .nav-link { color: var(--success); }
+.nav-success .nav-link:hover { color: var(--success); filter: brightness(0.9); }
+.nav.nav-pills.nav-success .nav-link.active { background: var(--success); color: var(--on-status); }
+
+/* ---- Justified ---- */
+.nav-justified .nav-link { text-align: center; flex-grow: 1; }
+
+/* ---- Icon nav ---- */
+.nav-icon .nav-link { display: flex; align-items: center; gap: 7px; }
+.nav-icon i { font-size: 1rem; }
+
+/* ---- Sizes ---- */
+.nav-sm .nav-link { font-size: 0.8125rem; padding: 5px 10px; }
+.nav-lg .nav-link { font-size: 0.9375rem; padding: 10px 16px; }
+
+/* ---- Breadcrumb (refined) ---- */
+.breadcrumb {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin: 0;
+  gap: 2px;
+}
+.breadcrumb-item + .breadcrumb-item::before { color: var(--muted-2); }
+.breadcrumb-item.active { color: var(--text); font-weight: 600; }

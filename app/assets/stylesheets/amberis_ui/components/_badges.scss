@@ -1,0 +1,39 @@
+/* =========================================================
+BADGES — pill, soft tonal variants
+========================================================= */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 5px 10px;
+  letter-spacing: -0.005em;
+}
+
+/* tiny status dot inside a badge */
+.badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ---- Soft tonal badges (recommended for statuses) ---- */
+.badge-soft-primary { background: var(--primary-soft); color: var(--primary-press); }
+.badge-soft-success { background: var(--success-soft); color: var(--success); }
+.badge-soft-warning { background: var(--warning-soft); color: var(--warning); }
+.badge-soft-danger  { background: var(--danger-soft);  color: var(--danger); }
+.badge-soft-info    { background: var(--info-soft);    color: var(--info); }
+.badge-soft-muted   { background: var(--hover-bg);     color: var(--muted); }
+
+/* ---- Solid (kept for compatibility with Bootstrap usage) ---- */
+.badge.bg-primary  { background: var(--primary) !important; color: var(--on-primary); }
+.badge.bg-success  { background: var(--success) !important; color: var(--on-status); }
+.badge.bg-danger   { background: var(--danger)  !important; color: var(--on-status); }
+.badge.bg-warning  { background: var(--warning) !important; color: var(--on-status); }
+.badge.bg-info     { background: var(--info)    !important; color: var(--on-status); }
+.badge.bg-secondary{ background: var(--hover-bg)!important; color: var(--muted); }

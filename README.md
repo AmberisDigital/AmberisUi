@@ -5,8 +5,25 @@ Konfiguration, Design-Tokens, Komponenten und Layout-Partials. Jede App setzt
 **nur ihre Farben** — Abstände, Schrift, Komponenten und Layout sind überall
 gleich. Hintergrund und Plan: `docs/layout.md` in AmberisCockpit.
 
-> Stand 0.1.0: Gerüst und Farb-API. Tokens, Komponenten, Schrift, Layout-
-> Partials und Styleguide folgen (siehe CHANGELOG).
+> Stand: Farb-API, Tokens, Basis-Styles und Komponenten (aus AmberisCare
+> übernommen). Schrift, Layout-Partials, Helper, Stimulus und Styleguide
+> folgen (siehe CHANGELOG).
+
+## Was drin ist
+
+| Ordner / Datei | Inhalt |
+|---|---|
+| `_colors.scss` | Farb-API (`$brand-*`), Neutraltöne, Ableitungen, Bootstrap-Farben |
+| `_config.scss` | Bootstrap-Einstellungen: Radien, Schriftfamilie |
+| `_contrast.scss` | Kontrast-Prüfung beim Kompilieren |
+| `_tokens.scss` | CSS-Variablen: Farben, Schatten, Radien, Abstände (`--space-*`), UI-Höhen (Touch 44 px), Dark Mode inkl. Bootstrap-Anpassungen |
+| `base/` | Reset, Typografie, App-Layout, Admin-Hinweis, Fußzeile |
+| `components/` | Buttons, Karten, Modal, Formulare inkl. Tom Select, Seitenleiste, Topbar, Tabellen inkl. Handy-Karten, Badges, Avatar, Tabs, Navigation, Flash/Toasts |
+| `utilities/_helpers.scss` | allgemeine Helfer-Klassen |
+
+Nicht enthalten — bindet die App nach `@import "amberis_ui"` selbst ein:
+Icon-Schrift (`bootstrap-icons`), Tom-Select-Grundstil, Trix, Kalender und
+app-eigene Seiten unter `pages/`.
 
 ## Einbinden
 
