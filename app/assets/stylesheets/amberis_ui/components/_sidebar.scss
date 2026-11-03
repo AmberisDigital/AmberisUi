@@ -191,26 +191,8 @@ DROPDOWN MENU (shared)
 .dropdown-menu-modern .dropdown-item.text-danger:hover { background: var(--danger-soft); }
 .dropdown-menu-modern .dropdown-divider { margin: 6px 4px; border-color: var(--border); }
 
-/* =========================================================
-MOBILE SIDEBAR
-========================================================= */
-
-@media (max-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1050;
-    width: 270px;
-    height: 100vh;
-    transform: translateX(-100%);
-    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .sidebar.sidebar-open {
-    transform: translateX(0);
-    box-shadow: var(--shadow-lg);
-  }
-}
+/* Below lg the layout hides .sidebar (d-none d-lg-flex) and shows the
+   same navigation in a Bootstrap offcanvas. */
 
 /* Touch: menu entries ~44px high — in the sidebar and in the mobile
    offcanvas, which renders the same .sidebar-nav. */

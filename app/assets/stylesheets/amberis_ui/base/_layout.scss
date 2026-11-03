@@ -69,27 +69,6 @@ LAYOUT
 .stack-sm { display: flex; flex-direction: column; gap: 12px; }
 
 /* =========================================================
-SIDEBAR OVERLAY (Mobile)
-========================================================= */
-
-.sidebar-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.45);
-  backdrop-filter: blur(2px);
-  z-index: 1040;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-.sidebar-overlay.active {
-  display: block;
-  opacity: 1;
-}
-
-/* =========================================================
 RESPONSIVE
 ========================================================= */
 

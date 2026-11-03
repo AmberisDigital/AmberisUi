@@ -118,26 +118,6 @@ ACTIONS / USER / NOTIFICATIONS
 }
 
 /* =========================================================
-SIDEBAR TOGGLE (hamburger)
-========================================================= */
-
-.sidebar-toggle {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: var(--ui-height);
-  height: var(--ui-height);
-  flex-shrink: 0;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  color: var(--text);
-  cursor: pointer;
-  transition: var(--transition);
-}
-.sidebar-toggle:hover { background: var(--hover-bg); }
-
-/* =========================================================
 RESPONSIVE
 ========================================================= */
 
@@ -148,7 +128,6 @@ RESPONSIVE
     margin-bottom: 18px;
   }
   .topbar-left { flex: 1 1 auto; }
-  .sidebar-toggle { display: flex; }
   .topbar-search input { width: 100%; }
   .topbar-search { flex: 1 1 100%; order: 3; }
 }
