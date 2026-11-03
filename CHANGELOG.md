@@ -13,6 +13,10 @@ oder entfernen = Major (mit Hinweis hier).
   `$brand-*-dark` für den Dark Mode; Standardwerte aus AmberisCare.
 - Farb-Tokens (CSS-Variablen) hell und dunkel.
 - Kontrast-Prüfung beim Kompilieren (`@warn` unter 4,5:1).
+- Neutral-Paletten: `$neutral-palette: warm` (Standard, Care/Cockpit) oder
+  `cool` (grau-grün, Flow) — Hintergrund, Text, Rahmen, Flächen und
+  Schattenfarbe; Dark Mode für beide gleich.
+- `.required` für Pflichtfeld-Labels (roter Stern), aus AmberisFlow.
 - Schrift DM Sans selbst ausgeliefert (variable woff2 aus
   `@fontsource-variable/dm-sans` 5.3.0, SIL OFL 1.1) — vorher war sie in
   allen Apps angegeben, aber nirgends geladen; es galt die Systemschrift.

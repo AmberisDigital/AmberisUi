@@ -58,6 +58,20 @@ class StylesheetsTest < Minitest::Test
     assert_match(/h1, \.h1 \{\s*font-size: 1\.375rem;/, css)
   end
 
+  def test_cool_palette_changes_neutrals_and_shadows
+    css, warnings = compile("$neutral-palette: cool; $brand-primary: #047857; $brand-accent: #0E9F6E;")
+
+    assert_includes css, "--app-bg: #EDF0EF"
+    assert_includes css, "--muted: #5B6B66"
+    assert_includes css, "rgba(10, 22, 19, 0.05)"
+    assert_includes css, "--bs-body-bg: #EDF0EF"
+    assert_empty warnings
+  end
+
+  def test_unknown_palette_fails
+    assert_raises(Sass::CompileError) { compile("$neutral-palette: dark;") }
+  end
+
   def test_app_specific_helpers_stay_out
     css, = compile
 

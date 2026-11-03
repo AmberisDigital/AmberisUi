@@ -16,6 +16,7 @@ WCAG AA (4.5:1 for normal text). Uses Bootstrap's contrast-ratio().
 @include amberis-ui-check-contrast("Weiß auf $brand-primary", $brand-primary, #ffffff);
 @include amberis-ui-check-contrast("$brand-primary auf $brand-bg", $brand-bg, $brand-primary);
 @include amberis-ui-check-contrast("--muted auf $brand-bg", $brand-bg, $neutral-muted);
+@include amberis-ui-check-contrast("--muted-2 auf Weiß", #ffffff, $neutral-muted-2);
 @include amberis-ui-check-contrast("$brand-success auf Weiß", #ffffff, $brand-success);
 @include amberis-ui-check-contrast("$brand-warning auf Weiß", #ffffff, $brand-warning);
 @include amberis-ui-check-contrast("$brand-danger auf Weiß", #ffffff, $brand-danger);

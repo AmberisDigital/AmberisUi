@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:map";
 @use "sass:math";
 
 /* Adjusts like color.adjust, then rounds to whole RGB channels — newer
@@ -14,9 +15,56 @@
 
 /* =========================================================
 COLOURS — the only thing an app may set
-Set the $brand-* variables before `@import "amberis_ui";`. Everything else
-(hover, pressed, soft tints, focus ring, dark mode) is derived here.
-Defaults are AmberisCare's amber.
+Set $neutral-palette and the $brand-* variables before
+`@import "amberis_ui";`. Everything else (hover, pressed, soft tints,
+focus ring, dark mode) is derived here. Defaults are AmberisCare's amber.
+========================================================= */
+
+/* =========================================================
+NEUTRALS — a palette to choose, not single values
+warm: cream and brown greys (Care, Cockpit) · cool: grey-green (Flow)
+========================================================= */
+
+$neutral-palette: warm !default;
+
+$amberis-ui-neutral-palettes: (
+  warm: (
+    bg:            #FAF6EF,
+    text:          #2A2118,
+    text-strong:   #1A140E,
+    muted:         #6E6253,   // secondary text, also Bootstrap's $secondary
+    muted-2:       #75685A,   // placeholders, hints, section titles
+    surface:       #ffffff,
+    surface-2:     #F7F2EA,   // subtle raised / table heads
+    hover-bg:      #F4EDE2,
+    border:        #ECE4D7,   // hairline
+    border-strong: #E0D5C4,
+    border-hover:  #D3C6B2,   // fields and scrollbar under the pointer
+    shadow:        #2A2118,   // shadows and the modal backdrop
+  ),
+  cool: (
+    bg:            #EDF0EF,
+    text:          #0F1F1C,
+    text-strong:   #08130F,
+    muted:         #5B6B66,
+    muted-2:       #66756F,
+    surface:       #ffffff,
+    surface-2:     #F3F6F5,
+    hover-bg:      #E8EEEB,
+    border:        #E1E7E4,
+    border-strong: #CBD5D0,
+    border-hover:  #B9C5BF,
+    shadow:        #0A1613,
+  ),
+);
+
+@if not map.has-key($amberis-ui-neutral-palettes, $neutral-palette) {
+  @error "amberis_ui: $neutral-palette muss warm oder cool sein, nicht #{$neutral-palette}.";
+}
+$amberis-ui-neutrals: map.get($amberis-ui-neutral-palettes, $neutral-palette);
+
+/* =========================================================
+BRAND
 ========================================================= */
 
 /* Amber in two steps: the darker one for fills and text (white text on it
@@ -30,7 +78,7 @@ $brand-warning: #B53A0A !default;   // orange-red, clearly apart from amber
 $brand-danger:  #DC2626 !default;
 $brand-info:    #0369A1 !default;
 
-$brand-bg: #FAF6EF !default;        // page background
+$brand-bg: map.get($amberis-ui-neutrals, bg) !default;   // page background
 
 /* Dark mode: a lighter brand on dark surfaces, dark text on it. Derived
    from the accent; set it yourself if the derivation does not fit. */
@@ -43,21 +91,23 @@ $brand-danger-dark:  #F87171 !default;
 $brand-info-dark:    #38BDF8 !default;
 
 /* =========================================================
-NEUTRALS — the same in every app (not overridable)
+NEUTRALS — from the chosen palette (not overridable one by one)
 ========================================================= */
 
-$neutral-text:        #2A2118;
-$neutral-text-strong: #1A140E;
-$neutral-muted:       #6E6253;   // secondary text, also Bootstrap's $secondary
-$neutral-muted-2:     #75685A;   // placeholders, hints, section titles
-$neutral-surface:     #ffffff;
-$neutral-surface-2:   #F7F2EA;   // subtle raised / table heads
-$neutral-hover-bg:    #F4EDE2;
-$neutral-border:        #ECE4D7; // hairline
-$neutral-border-strong: #E0D5C4;
-$neutral-border-hover:  #D3C6B2; // fields and scrollbar under the pointer
-$neutral-backdrop:      rgba(42, 33, 24, 0.5);   // behind modals, warm like the shadows
+$neutral-text:          map.get($amberis-ui-neutrals, text);
+$neutral-text-strong:   map.get($amberis-ui-neutrals, text-strong);
+$neutral-muted:         map.get($amberis-ui-neutrals, muted);
+$neutral-muted-2:       map.get($amberis-ui-neutrals, muted-2);
+$neutral-surface:       map.get($amberis-ui-neutrals, surface);
+$neutral-surface-2:     map.get($amberis-ui-neutrals, surface-2);
+$neutral-hover-bg:      map.get($amberis-ui-neutrals, hover-bg);
+$neutral-border:        map.get($amberis-ui-neutrals, border);
+$neutral-border-strong: map.get($amberis-ui-neutrals, border-strong);
+$neutral-border-hover:  map.get($amberis-ui-neutrals, border-hover);
+$neutral-shadow:        map.get($amberis-ui-neutrals, shadow);
+$neutral-backdrop:      rgba($neutral-shadow, 0.5);   // behind modals
 
+/* Dark mode: the same neutral greys for both palettes */
 $neutral-dark-bg:            #17181A;
 $neutral-dark-surface:       #1F2123;
 $neutral-dark-surface-2:     #26282B;

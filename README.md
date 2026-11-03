@@ -53,10 +53,11 @@ Nur diese Variablen darf eine App setzen, **vor** `@import "amberis_ui"`:
 
 | Variable | Wofür | Standard |
 |---|---|---|
+| `$neutral-palette` | Grautöne für Hintergrund, Text, Rahmen, Flächen, Schatten: `warm` (Creme/Braun) oder `cool` (Grau-Grün) | `warm` |
 | `$brand-primary` | Flächen und Text (Buttons, Links). Weiß darauf braucht 4,5:1. | `#9C5D0D` |
 | `$brand-accent` | Akzente: Icons, aktiver Menüpunkt, zarte Flächen, Fokus-Ring | `#C77C1E` |
 | `$brand-success`, `$brand-warning`, `$brand-danger`, `$brand-info` | Status | Grün, Orange-Rot, Rot, Blau |
-| `$brand-bg` | Seitenhintergrund | `#FAF6EF` |
+| `$brand-bg` | Seitenhintergrund | aus der Palette (`#FAF6EF` / `#EDF0EF`) |
 | `$brand-primary-dark` | Markenfarbe im Dark Mode | aus `$brand-accent` abgeleitet |
 | `$brand-success-dark` … `$brand-info-dark` | Status im Dark Mode | helle Töne |
 
@@ -73,10 +74,10 @@ WARNING: amberis_ui: Weiß auf $brand-primary hat Kontrast 3.3:1 (white auf #C77
 
 Je App:
 
-| App | `$brand-primary` | `$brand-accent` |
-|---|---|---|
-| Care, Cockpit | `#9C5D0D` | `#C77C1E` (Amber) |
-| Flow | folgt | Smaragd |
+| App | `$neutral-palette` | `$brand-primary` | `$brand-accent` |
+|---|---|---|---|
+| Care, Cockpit | `warm` | `#9C5D0D` | `#C77C1E` (Amber) |
+| Flow | `cool` | `#047857` | `#0E9F6E` (Smaragd) |
 
 ## Entwickeln
 
