@@ -3,7 +3,15 @@
 Versionen nach Semver: Farbton oder Abstand ändern = Minor, Klasse umbenennen
 oder entfernen = Major (mit Hinweis hier).
 
-## Unveröffentlicht
+## 0.1.1
+
+### Behoben
+
+- Menüeinträge im Handy-Menü (Offcanvas) sehen aus wie in der Sidebar:
+  aktive Fläche, Akzentbalken, Icon-Farben. Die Regeln galten nur in
+  `.sidebar`; jetzt auch in `.sidebar-nav`.
+
+## 0.1.0
 
 ### Neu
 
