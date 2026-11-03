@@ -1,5 +1,6 @@
 require "bootstrap"
 require "dartsass-rails"
+require "tom-select-rails"
 
 module AmberisUi
   # No isolate_namespace: the apps use the helpers and partials directly.

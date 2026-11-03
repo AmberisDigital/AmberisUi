@@ -22,9 +22,12 @@ gleich. Hintergrund und Plan: `docs/layout.md` in AmberisCockpit.
 | `components/` | Buttons, Karten, Modal, Formulare inkl. Tom Select, Seitenleiste, Topbar, Tabellen inkl. Handy-Karten, Badges, Avatar, Tabs, Navigation, Flash/Toasts |
 | `utilities/_helpers.scss` | allgemeine Helfer-Klassen |
 
+Tom Selects Grundstil bindet die Bibliothek selbst ein (vor den
+Formular-Styles, die ihn anpassen).
+
 Nicht enthalten — bindet die App nach `@import "amberis_ui"` selbst ein:
-Icon-Schrift (`bootstrap-icons`), Tom-Select-Grundstil, Trix, Kalender und
-app-eigene Seiten unter `pages/`.
+Icon-Schrift (`bootstrap-icons`), Trix, Kalender und app-eigene Seiten
+unter `pages/`.
 
 ## Einbinden
 
@@ -40,8 +43,8 @@ $brand-accent:  #C77C1E;
 @import "amberis_ui";
 ```
 
-`amberis_ui` bindet Bootstrap selbst ein; in der App kein eigenes
-`@import "bootstrap"`. dartsass-rails findet die Dateien ohne weitere
+`amberis_ui` bindet Bootstrap und Tom Select selbst ein; in der App kein
+eigenes `@import "bootstrap"` oder `@import "tom-select-rails/…"`. dartsass-rails findet die Dateien ohne weitere
 Konfiguration, weil die Asset-Pfade der Engine automatisch Sass-Load-Paths sind.
 
 ## Farben

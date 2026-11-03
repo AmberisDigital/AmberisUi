@@ -5,7 +5,7 @@ In the app:
   $brand-primary: #9C5D0D;   // optional, see _colors.scss
   @import "amberis_ui";
 
-Icon font, Tom Select and app pages are imported by the app after this.
+Icon font and app pages are imported by the app after this.
 ========================================================= */
 
 /* ============ CONFIG ============ */
@@ -17,6 +17,9 @@ Icon font, Tom Select and app pages are imported by the app after this.
 @import "bootstrap/variables";
 @import "bootstrap/variables-dark";
 @import "bootstrap";
+
+/* Tom Select's base theme — before components/forms, which restyles it */
+@import "tom-select-rails/scss/tom-select";
 
 /* ============ CHECKS & TOKENS ============ */
 @import "amberis_ui/contrast";

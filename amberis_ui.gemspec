@@ -22,4 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 8.1"
   spec.add_dependency "bootstrap", "~> 5.3"
   spec.add_dependency "dartsass-rails", ">= 0.5"
+  spec.add_dependency "tom-select-rails", "~> 2.5"
 end
