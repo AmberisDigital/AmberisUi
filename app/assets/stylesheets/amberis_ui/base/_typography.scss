@@ -10,8 +10,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-h1 { font-size: 1.625rem; letter-spacing: -0.02em; }   // 26px
-h2 { font-size: 1.375rem; letter-spacing: -0.018em; }  // 22px
+/* h1 is the page title — one per page, the same size everywhere. Bootstrap
+   extends .h1–.h6 with these rules, so the classes follow the scale. */
+h1 { font-size: 1.375rem; letter-spacing: -0.02em; }   // 22px
+h2 { font-size: 1.25rem; letter-spacing: -0.018em; }   // 20px
 h3 { font-size: 1.15rem; }                              // 18px
 h4 { font-size: 1rem; font-weight: 600; }               // 16px
 h5 { font-size: 0.9375rem; font-weight: 600; }          // 15px

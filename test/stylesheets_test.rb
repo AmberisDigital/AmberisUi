@@ -52,6 +52,12 @@ class StylesheetsTest < Minitest::Test
     refute_includes css, "fonts.googleapis.com"
   end
 
+  def test_page_title_is_22px_also_as_heading_class
+    css, = compile
+
+    assert_match(/h1, \.h1 \{\s*font-size: 1\.375rem;/, css)
+  end
+
   def test_app_specific_helpers_stay_out
     css, = compile
 

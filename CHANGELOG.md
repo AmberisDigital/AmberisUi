@@ -37,3 +37,6 @@ oder entfernen = Major (mit Hinweis hier).
 - `.nav-pills` nur noch in `_tabs.scss` (gleiche Werte wie bisher wirksam).
 - Karten-Innenabstand `--space-4` (16 px) statt 15 px.
 - `p` ist nicht mehr grau, sondern erbt die Textfarbe.
+- Seitentitel einheitlich 22 px: `h1` 26 → 22 px, `h2` 22 → 20 px,
+  `.topbar-title` 22,4 → 22 px. Seitentitel als `h1` **ohne** `.hX`-Klasse
+  schreiben (`h1.h4` war 16 px, `h1.h3` 18 px).
