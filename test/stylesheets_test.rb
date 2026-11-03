@@ -41,6 +41,13 @@ class StylesheetsTest < Minitest::Test
      ".admin-notice", ".text-clamp"].each { |piece| assert_includes css, piece }
   end
 
+  def test_heading_classes_follow_the_element_scale
+    css, = compile
+    last_h3 = css.scan(/^[^{}]*\.h3[^{}]*\{[^}]*font-size:\s*([^;]+);/).flatten.last
+
+    assert_equal "1.15rem", last_h3
+  end
+
   def test_app_specific_helpers_stay_out
     css, = compile
 

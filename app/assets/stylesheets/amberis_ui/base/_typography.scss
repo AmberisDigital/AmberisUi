@@ -2,7 +2,10 @@
 TYPOGRAPHY  — refined scale + optical tightening
 ========================================================= */
 
-h1, h2, h3, h4, h5, h6 {
+/* Bootstrap's .h1–.h6 follow the same scale as the elements — its own
+   classes are responsive and larger (.h3 ≈ 29px beat our h1). */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
   color: var(--text-strong);
   font-weight: 650;
   line-height: 1.2;
@@ -10,12 +13,12 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-h1 { font-size: 1.625rem; letter-spacing: -0.02em; }   // 26px
-h2 { font-size: 1.375rem; letter-spacing: -0.018em; }  // 22px
-h3 { font-size: 1.15rem; }                              // 18px
-h4 { font-size: 1rem; font-weight: 600; }               // 16px
-h5 { font-size: 0.9375rem; font-weight: 600; }          // 15px
-h6 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+h1, .h1 { font-size: 1.625rem; letter-spacing: -0.02em; }   // 26px
+h2, .h2 { font-size: 1.375rem; letter-spacing: -0.018em; }  // 22px
+h3, .h3 { font-size: 1.15rem; }                              // 18px
+h4, .h4 { font-size: 1rem; font-weight: 600; }               // 16px
+h5, .h5 { font-size: 0.9375rem; font-weight: 600; }          // 15px
+h6, .h6 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
 
 p {
   color: var(--muted);
