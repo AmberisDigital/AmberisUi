@@ -37,7 +37,7 @@ class StylesheetsTest < Minitest::Test
     css, = compile
 
     ["--space-4: 16px", "--ui-height: 44px", ".btn-primary", ".card-stat",
-     ".table-mobile-cards", ".sidebar .nav-link.active", ".ts-wrapper", ".toast-success",
+     ".table-mobile-cards", ":is(.sidebar, .sidebar-nav) .nav-link.active", ".ts-wrapper", ".toast-success",
      ".admin-notice", ".text-clamp"].each { |piece| assert_includes css, piece }
   end
 
@@ -50,6 +50,13 @@ class StylesheetsTest < Minitest::Test
     urls.each { |url| assert File.exist?(File.join(fonts, url)), "missing #{url}" }
     assert_includes css, "font-weight: 100 1000"
     refute_includes css, "fonts.googleapis.com"
+  end
+
+  def test_menu_entries_look_the_same_in_the_offcanvas
+    css, = compile
+
+    assert_match(/:is\(\.sidebar, \.sidebar-nav\) \.nav-link\.active \{[^}]*background: var\(--primary-soft\)/, css)
+    refute_match(/^\.sidebar \.nav-link/, css)
   end
 
   def test_page_title_is_22px_also_as_heading_class

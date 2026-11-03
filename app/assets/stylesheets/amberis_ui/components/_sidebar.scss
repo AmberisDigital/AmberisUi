@@ -49,7 +49,7 @@ NAVIGATION
   gap: 2px;
 }
 
-.sidebar .nav-link {
+:is(.sidebar, .sidebar-nav) .nav-link {
   position: relative;
   display: flex;
   align-items: center;
@@ -65,22 +65,22 @@ NAVIGATION
   transition: var(--transition);
 }
 
-.sidebar .nav-link i { font-size: 1.05rem; width: 20px; text-align: center; color: var(--muted-2); transition: var(--transition); }
+:is(.sidebar, .sidebar-nav) .nav-link i { font-size: 1.05rem; width: 20px; text-align: center; color: var(--muted-2); transition: var(--transition); }
 
-.sidebar .nav-link:hover {
+:is(.sidebar, .sidebar-nav) .nav-link:hover {
   background: var(--hover-bg);
   color: var(--text);
 }
-.sidebar .nav-link:hover i { color: var(--muted); }
+:is(.sidebar, .sidebar-nav) .nav-link:hover i { color: var(--muted); }
 
 /* Active — soft fill + brand accent bar + brand icon */
-.sidebar .nav-link.active {
+:is(.sidebar, .sidebar-nav) .nav-link.active {
   background: var(--primary-soft);
   color: var(--primary-press);
   font-weight: 600;
 }
-.sidebar .nav-link.active i { color: var(--accent); }
-.sidebar .nav-link.active::before {
+:is(.sidebar, .sidebar-nav) .nav-link.active i { color: var(--accent); }
+:is(.sidebar, .sidebar-nav) .nav-link.active::before {
   content: "";
   position: absolute;
   left: 0;
@@ -93,7 +93,7 @@ NAVIGATION
 }
 
 /* trailing count pill on a nav item */
-.sidebar .nav-link .nav-count {
+:is(.sidebar, .sidebar-nav) .nav-link .nav-count {
   margin-left: auto;
   font-size: 0.6875rem;
   font-weight: 700;
@@ -102,7 +102,7 @@ NAVIGATION
   border-radius: 999px;
   padding: 1px 7px;
 }
-.sidebar .nav-link.active .nav-count { color: var(--primary-press); background: var(--surface); }
+:is(.sidebar, .sidebar-nav) .nav-link.active .nav-count { color: var(--primary-press); background: var(--surface); }
 
 /* =========================================================
 SECTION TITLE
@@ -192,7 +192,8 @@ DROPDOWN MENU (shared)
 .dropdown-menu-modern .dropdown-divider { margin: 6px 4px; border-color: var(--border); }
 
 /* Below lg the layout hides .sidebar (d-none d-lg-flex) and shows the
-   same navigation in a Bootstrap offcanvas. */
+   same navigation in a Bootstrap offcanvas. The entry styles above hold
+   for .sidebar-nav too, so the links look the same there. */
 
 /* Touch: menu entries ~44px high — in the sidebar and in the mobile
    offcanvas, which renders the same .sidebar-nav. */
