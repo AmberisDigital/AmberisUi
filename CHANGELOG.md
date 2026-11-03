@@ -20,3 +20,20 @@ oder entfernen = Major (mit Hinweis hier).
   Tabellen, Badges, Avatar, Tabs, Navigation, Flash) und allgemeine Helper.
   Kompiliert identisch zu Care bis auf die gerundeten Farbwerte (Dark-Mode-
   Primär `rgb(217, 149, 63)` statt `#D9963F`).
+
+### Geändert gegenüber Care
+
+- `.text-warning` nutzt `--warning` (Orange-Rot) statt des alten `#b45309`.
+- Warme statt kalte Grautöne: neue Tokens `--border-hover` (Feld-Hover,
+  Scrollbalken) und `--backdrop` (Modal-Hintergrund); gestreifte
+  Tabellenzeilen `--surface-2` (vorher fest `#fcfcfd`, auch im Dark Mode);
+  `.bg-secondary-soft` = `--hover-bg`.
+- Entfernt: die ungenutzte Schiebe-Seitenleiste ≤ 768 px
+  (`.sidebar-open`, `.sidebar-overlay`, `.sidebar-toggle`). Unter `lg`
+  gilt nur das Offcanvas.
+- `.nav-pills` nur noch in `_tabs.scss` (gleiche Werte wie bisher wirksam).
+- Karten-Innenabstand `--space-4` (16 px) statt 15 px.
+- `.h1`–`.h6` haben dieselbe Größe wie `h1`–`h6`. **Achtung beim
+  Anbinden:** `h1.h4` als Seitentitel ist damit 16 px — die Klasse am
+  Seitentitel entfernen.
+- `p` ist nicht mehr grau, sondern erbt die Textfarbe.
