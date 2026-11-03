@@ -19,7 +19,9 @@ BUTTONS — flat, crisp, refined
 
   padding: 0 16px;
 
-  border: 1px solid transparent;
+  /* Bootstrap's colour variable, so btn-outline-* keep their border;
+     transparent for buttons without a variant. */
+  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
   white-space: nowrap;
 
   transition: background var(--transition), border-color var(--transition),
