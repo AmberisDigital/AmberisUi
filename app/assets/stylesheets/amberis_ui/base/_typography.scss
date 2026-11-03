@@ -20,8 +20,9 @@ h4, .h4 { font-size: 1rem; font-weight: 600; }               // 16px
 h5, .h5 { font-size: 0.9375rem; font-weight: 600; }          // 15px
 h6, .h6 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
 
+/* Body text keeps the text colour; grey only where it is secondary
+   (.text-muted, subtitles). */
 p {
-  color: var(--muted);
   margin: 0;
 }
 
