@@ -5,9 +5,9 @@ Konfiguration, Design-Tokens, Komponenten und Layout-Partials. Jede App setzt
 **nur ihre Farben** — Abstände, Schrift, Komponenten und Layout sind überall
 gleich. Hintergrund und Plan: `docs/layout.md` in AmberisCockpit.
 
-> Stand: Farb-API, Tokens, Basis-Styles und Komponenten (aus AmberisCare
-> übernommen). Schrift, Layout-Partials, Helper, Stimulus und Styleguide
-> folgen (siehe CHANGELOG).
+> Stand: Farb-API, Tokens, Basis-Styles, Komponenten (aus AmberisCare
+> übernommen) und die Schrift DM Sans. Layout-Partials, Helper, Stimulus
+> und Styleguide folgen (siehe CHANGELOG).
 
 ## Was drin ist
 
@@ -17,7 +17,8 @@ gleich. Hintergrund und Plan: `docs/layout.md` in AmberisCockpit.
 | `_config.scss` | Bootstrap-Einstellungen: Radien, Schriftfamilie |
 | `_contrast.scss` | Kontrast-Prüfung beim Kompilieren |
 | `_tokens.scss` | CSS-Variablen: Farben, Schatten, Radien, Abstände (`--space-*`), UI-Höhen (Touch 44 px), Dark Mode inkl. Bootstrap-Anpassungen |
-| `base/` | Reset, Typografie, App-Layout, Admin-Hinweis, Fußzeile |
+| `base/` | Schrift DM Sans (`@font-face`), Reset, Typografie, App-Layout, Admin-Hinweis, Fußzeile |
+| `app/assets/fonts/amberis_ui/` | DM Sans als variable woff2 (alle Stärken, normal und kursiv, Latin + Latin-Erweitert), Lizenz SIL OFL 1.1 |
 | `components/` | Buttons, Karten, Modal, Formulare inkl. Tom Select, Seitenleiste, Topbar, Tabellen inkl. Handy-Karten, Badges, Avatar, Tabs, Navigation, Flash/Toasts |
 | `utilities/_helpers.scss` | allgemeine Helfer-Klassen |
 

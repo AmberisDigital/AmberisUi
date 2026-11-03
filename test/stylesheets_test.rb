@@ -48,6 +48,17 @@ class StylesheetsTest < Minitest::Test
     assert_equal "1.15rem", last_h3
   end
 
+  def test_dm_sans_is_served_from_the_gem
+    css, = compile
+    fonts = File.expand_path("../app/assets/fonts", __dir__)
+    urls = css.scan(/url\("([^"]+\.woff2)"\)/).flatten
+
+    assert_equal 4, urls.size
+    urls.each { |url| assert File.exist?(File.join(fonts, url)), "missing #{url}" }
+    assert_includes css, "font-weight: 100 1000"
+    refute_includes css, "fonts.googleapis.com"
+  end
+
   def test_app_specific_helpers_stay_out
     css, = compile
 
