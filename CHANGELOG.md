@@ -36,7 +36,4 @@ oder entfernen = Major (mit Hinweis hier).
   gilt nur das Offcanvas.
 - `.nav-pills` nur noch in `_tabs.scss` (gleiche Werte wie bisher wirksam).
 - Karten-Innenabstand `--space-4` (16 px) statt 15 px.
-- `.h1`–`.h6` haben dieselbe Größe wie `h1`–`h6`. **Achtung beim
-  Anbinden:** `h1.h4` als Seitentitel ist damit 16 px — die Klasse am
-  Seitentitel entfernen.
 - `p` ist nicht mehr grau, sondern erbt die Textfarbe.
