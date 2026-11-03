@@ -11,7 +11,7 @@ CARDS — hairline border + light shadow (slim, crisp)
   transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
 }
 
-.card-body { padding: 15px; }
+.card-body { padding: var(--space-4); }
 
 /* Resting cards stay calm; lift only when interactive */
 .card:hover { box-shadow: var(--shadow-sm); }
@@ -51,7 +51,7 @@ HEADER / FOOTER
 .card-header {
   background: transparent;
   border-bottom: 1px solid var(--border);
-  padding: 15px;
+  padding: var(--space-4);
   font-weight: 600;
   font-size: 0.9375rem;
   color: var(--text-strong);
@@ -62,7 +62,7 @@ HEADER / FOOTER
 .card-footer {
   background: transparent;
   border-top: 1px solid var(--border);
-  padding: 15px;
+  padding: var(--space-4);
 }
 
 /* =========================================================
@@ -148,7 +148,5 @@ MOBILE
 
 @media (max-width: 768px) {
   .card { border-radius: var(--radius-md); }
-  .card-body { padding: 15px; }
-  .card-header, .card-footer { padding-left: 15px; padding-right: 15px; }
   .card-stat .value { font-size: 1.45rem; }
 }
