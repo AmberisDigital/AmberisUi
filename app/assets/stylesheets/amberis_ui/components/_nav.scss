@@ -16,14 +16,7 @@ NAVIGATION (generic .nav / pills / icon nav)
 .nav-link:hover { color: var(--text); background: var(--hover-bg); }
 .nav-link.active { color: var(--primary-press); }
 
-/* ---- Pills ---- */
-.nav-pills .nav-link {
-  border-radius: var(--radius-pill);
-  padding: 7px 14px;
-  font-size: 0.875rem;
-}
-.nav-pills .nav-link.active { background: var(--primary); color: var(--on-primary); }
-.nav-pills .nav-link:hover:not(.active) { background: var(--hover-bg); }
+/* ---- Pills: see _tabs.scss ---- */
 
 /* ---- Primary nav ---- */
 .nav-primary .nav-link.active { background: var(--primary-soft); color: var(--primary-press); }

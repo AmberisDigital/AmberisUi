@@ -70,12 +70,12 @@ PILL TABS  (Bootstrap .nav-pills  — compact, left-aligned)
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 14px;
+    padding: 7px 14px;
     font-size: 0.875rem;
     font-weight: 600;
     white-space: nowrap;
     color: var(--muted);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-pill);
     transition: background var(--transition), color var(--transition);
 
     &:hover { color: var(--text); background: var(--hover-bg); }
