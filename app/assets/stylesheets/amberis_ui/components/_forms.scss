@@ -55,6 +55,13 @@ LABELS / GROUPS
 
 .form-group { margin-bottom: 18px; }
 
+/* Mark a label (form-label or a section title) as belonging to a required
+   field: add this class alongside the element's own class. */
+.required::after {
+  content: " *";
+  color: var(--danger);
+}
+
 .form-text { font-size: 0.75rem; color: var(--muted); margin-top: 5px; }
 
 /* =========================================================
