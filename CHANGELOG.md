@@ -3,6 +3,31 @@
 Versionen nach Semver: Farbton oder Abstand ändern = Minor, Klasse umbenennen
 oder entfernen = Major (mit Hinweis hier).
 
+## 0.2.0
+
+### Neu
+
+- `.btn-collapse`: Button mit Icon und Text, auf dem Handy (bis 576 px)
+  nur das Icon, quadratisch wie `.btn-icon`. Der Text steht in
+  `.btn-text`, der Button braucht ein `aria-label`:
+
+  ```haml
+  = link_to edit_path, class: "btn btn-sm btn-light border btn-collapse", "aria-label": "Bearbeiten" do
+    %i.bi.bi-pencil{ "aria-hidden": "true" }
+    %span.btn-text Bearbeiten
+  ```
+
+  Nur für eindeutige Icons (Bearbeiten, Löschen, Vorschau): Auf dem Handy
+  gibt es keinen Tooltip.
+
+### Behoben
+
+- Modals auf dem Handy: Die Höhe richtet sich nach dem sichtbaren Bereich
+  (`dvh`, `vh` als Fallback). Mit `vh` zählte der Platz hinter der
+  Adressleiste mit, und der Kopf mit dem Schließen-Button konnte oben aus
+  dem Bild rutschen. `.modal-dialog-scrollable` ist nur so hoch wie sein
+  Inhalt; lange Wörter im Modal-Body brechen um.
+
 ## 0.1.2
 
 ### Behoben

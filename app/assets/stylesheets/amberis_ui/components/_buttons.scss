@@ -48,6 +48,16 @@ BUTTONS — flat, crisp, refined
 .btn-icon { width: var(--ui-height); padding: 0; }
 .btn-icon.btn-sm { width: var(--ui-height-sm); }
 
+/* Icon and text, on phones only the icon: the text goes in .btn-text, the
+   button gets an aria-label. Only for icons that speak for themselves
+   (edit, delete, preview) — a touch screen shows no title tooltip. */
+@media (max-width: 576px) {
+  .btn-collapse { width: var(--ui-height); padding: 0; }
+  .btn-collapse.btn-sm { width: var(--ui-height-sm); }
+  .btn-collapse .btn-text { display: none; }
+  .btn-collapse > i { margin: 0 !important; }
+}
+
 /* =========================================================
 PRIMARY — solid amber, subtle depth (no gradient/glow/shine)
 ========================================================= */

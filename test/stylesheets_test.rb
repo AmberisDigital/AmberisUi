@@ -67,6 +67,19 @@ class StylesheetsTest < Minitest::Test
     refute_match(/^\.sidebar \.nav-link/, css)
   end
 
+  def test_modals_fit_the_visible_height_on_phones
+    css, = compile
+
+    assert_includes css, "max-height: calc(90dvh - var(--modal-gap))"
+    assert_match(/\.modal-dialog-scrollable \{\s*height: auto;/, css)
+  end
+
+  def test_collapsing_buttons_show_only_the_icon_on_phones
+    css, = compile
+
+    assert_match(/@media \(max-width: 576px\) \{[^@]*\.btn-collapse \.btn-text \{\s*display: none;/, css)
+  end
+
   def test_page_title_is_22px_also_as_heading_class
     css, = compile
 

@@ -56,7 +56,11 @@ MODAL — refined surface + the original stability fixes
    rounded all round. Capped height + internally scrollable body, so header
    (close button) and footer (submit) always stay reachable even when the
    form itself is taller than the viewport (see e.g. the "Neue
-   Fahrt"-Modal, which has more fields than fit on a phone screen). */
+   Fahrt"-Modal, which has more fields than fit on a phone screen).
+   dvh: the height actually visible — vh counts the space behind the
+   browser's address bar, which could push the header off screen; vh stays
+   as the fallback. A scrollable dialog sizes to its content like the others
+   instead of Bootstrap's full height. */
 @media (max-width: 576px) {
   .modal-dialog {
     --modal-gap: 8px;
@@ -68,15 +72,19 @@ MODAL — refined surface + the original stability fixes
     bottom: calc(var(--modal-gap) + env(safe-area-inset-bottom));
     max-width: none;
     max-height: calc(90vh - var(--modal-gap));
+    max-height: calc(90dvh - var(--modal-gap));
   }
+  .modal-dialog-scrollable { height: auto; }
   .modal-content {
     max-height: calc(90vh - var(--modal-gap));
+    max-height: calc(90dvh - var(--modal-gap));
     display: flex;
     flex-direction: column;
   }
   .modal-body {
     flex: 1 1 auto;
     overflow-y: auto;
+    overflow-wrap: anywhere;
     -webkit-overflow-scrolling: touch;
   }
 }
